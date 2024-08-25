@@ -1,0 +1,42 @@
+body {
+    background-image: url("https://th.bing.com/th/id/OIP.vS0hnvg05rmzzKcjoMAafAHaE8?rs=1&pid=ImgDetMain");
+    background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card-deck {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card {
+    margin: 10px;
+    flex: 0 0 30%;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    .card {
+        flex: 0 0 100%;
+    }
+}

@@ -1,0 +1,113 @@
+@charset "ISO-8859-1";
+
+body {
+	background: linear-gradient(to right, #ece9e6, #ffffff);
+	/* Light background gradient */
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	z-index: 2;
+}
+
+.card-header {
+	background-color: #4e54c8; /* Deep blue-violet */
+	color: #4e54c8;
+	border-radius: 15px 15px 0 0;
+	padding: 20px;
+	text-align: center;
+	font-style: italic;
+}
+
+.form-control {
+	border: 1px solid #4e54c8; /* Matching border color */
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.btn-primary {
+	background-color: #4e54c8; /* Button color */
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+	background-color: #6c7ae0; /* Hover effect */
+}
+
+.form-label {
+	font-weight: bold;
+	color: #4e54c8; /* Label color */
+}
+
+.card-body {
+	padding: 30px;
+}
+
+input[type="radio"]+label {
+	color: #4e54c8;
+}
+
+input[type="radio"]:checked+label {
+	font-weight: bold;
+}
+
+/* CAPTCHA Styling */
+#cap {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 24px;
+	font-weight: bold;
+	color: #4e54c8;
+	background-color: #f2f2f2;
+	padding: 10px;
+	border-radius: 5px;
+	letter-spacing: 5px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	display: inline-block;
+	text-decoration: line-through;
+	font-style: oblique;
+	text-transform: 50deg;
+}
+
+.captcha-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.captcha-container input {
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #4e54c8;
+	letter-spacing: 7px;
+}
+
+.captcha-container button {
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #4e54c8;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.captcha-container button i {
+	font-size: 16px;
+}
+
+#error{
+	color: red;
+}
