@@ -40,12 +40,14 @@ function submitForm(event) {
 		    type: 'POST',
 		    data: data,
 		    success: function(response) {
+				document.getElementById('errorusername').innerHTML= "";
+				document.getElementById('errorpass').innerHTML= "";
 		        Swal.fire({
 		            toast: true,
 		            icon: 'success',
 		            title: 'Account Created Successfully',
 		            animation: false,
-		            position: 'bottom',
+		            position: 'top',
 		            showConfirmButton: false,  // Removed the confirm button
 		            timer: 3000,  // Timer set to 3 seconds
 		            timerProgressBar: true,
@@ -61,7 +63,7 @@ function submitForm(event) {
 			error: function(xhr, status, error){
 				
 				if(xhr.status == 409){
-					Swal.fire({
+					/*Swal.fire({
 						    toast: true,
 						    icon: 'error',
 						    title: 'User Name already exists !!',
@@ -74,7 +76,9 @@ function submitForm(event) {
 						      toast.addEventListener('mouseenter', Swal.stopTimer)
 						      toast.addEventListener('mouseleave', Swal.resumeTimer)
 						    }
-					});
+					});*/
+					document.getElementById('errorusername').innerHTML= "Username already exists";
+					document.getElementById('errorpass').innerHTML= "";
 				}
 				else{			
 					Swal.fire({
@@ -87,7 +91,7 @@ function submitForm(event) {
 		});
 	}
 	else if(pass!=repass){
-		document.getElementById('error').innerHTML = "Passwords don't match";
+		document.getElementById('errorpass').innerHTML = "Passwords don't match";
 	}
 	else if(captchacode != enteredcaptchacode){	
          Swal.fire({

@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -130,6 +131,18 @@ public class TripController {
 	
 	@GetMapping("home")
 	public String getAllTrips(Model model){
+		
+		// Get the logged-in user's details
+		/*
+		 * Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		 * if (auth != null && auth.getPrincipal() instanceof UserDetails) { UserDetails
+		 * userDetails = (UserDetails) auth.getPrincipal();
+		 * model.addAttribute("username", userDetails.getUsername());
+		 * model.addAttribute("role", auth.getAuthorities().stream()
+		 * .map(grantedAuthority -> grantedAuthority.getAuthority())
+		 * .findFirst().orElse("ROLE_USER")); }
+		 * 
+		 */
 		List<Trips> getAllTrips = tripServ.getTrips();
 		model.addAttribute("listofTrips",getAllTrips);
 		System.out.println("List of Trips---"+getAllTrips);
