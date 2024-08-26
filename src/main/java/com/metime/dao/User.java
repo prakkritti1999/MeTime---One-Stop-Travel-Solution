@@ -10,8 +10,6 @@ import lombok.Setter;
 
 @Data
 @Entity
-@Getter
-@Setter
 public class User {
 
 	@Id
