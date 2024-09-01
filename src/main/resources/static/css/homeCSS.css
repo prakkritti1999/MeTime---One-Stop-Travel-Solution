@@ -1,24 +1,18 @@
-body {
-    background-image: url("https://th.bing.com/th/id/OIP.vS0hnvg05rmzzKcjoMAafAHaE8?rs=1&pid=ImgDetMain");
-    background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-}
-
 .container {
     margin-top: 20px;
 }
 
-.card-deck {
+/* .card-deck {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 15px; Adjust spacing between cards
+    justify-content: center; Center-align cards
 }
-
+ */
 .card {
     margin: 10px;
-    flex: 0 0 30%;
+    flex: 0 1 30%; /* Adjust to ensure proper spacing and wrapping */
+    max-width: 300px; /* Ensure cards don't get too wide */
 }
 
 .search-bar {
@@ -26,9 +20,17 @@ body {
     justify-content: flex-end;
     margin-bottom: 20px;
 }
+.search-bar input {
+    max-width: 300px;
+    flex: 1; /* Allow input to take available space */
+}
+.search-bar button {
+    margin-left: 10px; /* Add space between input and button */
+}
+
 .card:hover {
-    transform: scale(1.07);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for a polished look */
 }
 
 .card-img-top {
@@ -37,6 +39,17 @@ body {
 
 @media (max-width: 767px) {
     .card {
-        flex: 0 0 100%;
+        flex: 0 1 100%; /* Full width for smaller screens */
+        max-width: 100%; /* Ensure cards don't exceed screen width */
     }
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
 }

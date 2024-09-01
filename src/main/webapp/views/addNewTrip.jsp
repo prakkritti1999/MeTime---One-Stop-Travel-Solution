@@ -5,19 +5,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add New Trip Here...</title>
-<jsp:include page="headers.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/addform.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
     <jsp:include page="navbar.jsp"></jsp:include>
     <div class="container" style="padding-bottom: 50px;">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-4">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center">Add a New Trip</h2>

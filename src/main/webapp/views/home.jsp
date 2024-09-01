@@ -41,7 +41,7 @@
                 int index = 1;
                 for (Trips trips : listofTrips) {
                     String imagePath = "/images/" + index + ".jpeg";
-                    out.println("<div class='col-md-3 mb-3'>");
+                    out.println("<div class='col-md-4 mb-4'>");
                         out.println("<div class='card'>");
                             out.println("<img class='card-img-top' style='padding: 8px; height: 200px;' src='" + imagePath + "' alt='Trip Image'>");
                             out.println("<div class='card-body'>");

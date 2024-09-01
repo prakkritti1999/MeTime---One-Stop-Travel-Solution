@@ -9,13 +9,23 @@
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
 
 	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@900&display=swap');
 		.navbar-brand {
-			font-size: 24px;
-			color: blue;
+			/* color: blue; */
+			font-family: 'Great Vibes', cursive;
+		    font-size: 48px;
+		    font-style: oblique;
+		    font-weight: bold;
+		    color: #f39c12;
+		    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+		    letter-spacing: 2px;
+		    transition: transform 0.3s ease;
 		}
 
 		.navbar-brand:hover {
 			color: white;
+			transform: scale(1.1);
+    		text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 		}
 
 		.navbar-nav .nav-link {
@@ -38,6 +48,7 @@
 		}
 
 		*/
+		
 	</style>
 </head>
 
@@ -48,7 +59,7 @@
 			<a class="navbar-brand" href="#">ME TIME is HERE</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true" style="width: auto; height:auto; ; color: white;"></i></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
@@ -68,11 +79,11 @@
 				<div class="ms-auto d-flex align-items-center">
 					<!-- Dropdown just to the left of Sign Up -->
 					<div class="dropdown me-2">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu"
 							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<i class="fa-solid fa-user"></i>
 						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu">
 							<p class="dropdown-item">User name</p>
 							<p class="dropdown-item" type="button">ROLE</p>
 							<a class="dropdown-item" href="/logout" data-bs-toggle='tooltip' data-bs-placement='top'

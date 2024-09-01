@@ -5,11 +5,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Sign Up</title>
-
-        <jsp:include page="headers.jsp"></jsp:include>
-
         <link rel="stylesheet" href="/css/signup.css">
-
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     </head>
 
