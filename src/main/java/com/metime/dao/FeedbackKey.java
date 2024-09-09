@@ -11,15 +11,15 @@ import lombok.Setter;
 @Getter
 @Embeddable
 public class FeedbackKey implements Serializable {
-    private Long tripId;
+	/* private Long tripId; */
     private String username;
 
     // Default constructor
     public FeedbackKey() {}
 
     // Parameterized constructor
-    public FeedbackKey(Long tripId, String username) {
-        this.tripId = tripId;
+    public FeedbackKey(String username) {
+		/* this.tripId = tripId; */
         this.username = username;
     }
 

@@ -2,17 +2,10 @@
     margin-top: 20px;
 }
 
-/* .card-deck {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px; Adjust spacing between cards
-    justify-content: center; Center-align cards
-}
- */
 .card {
     margin: 10px;
     flex: 0 1 30%; /* Adjust to ensure proper spacing and wrapping */
-    max-width: 300px; /* Ensure cards don't get too wide */
+    max-width: 30rem; /* Ensure cards don't get too wide */
 }
 
 .search-bar {
@@ -21,7 +14,7 @@
     margin-bottom: 20px;
 }
 .search-bar input {
-    max-width: 300px;
+    max-width: 30rem;
     flex: 1; /* Allow input to take available space */
 }
 .search-bar button {
@@ -52,4 +45,66 @@
 
 .btn-primary:hover {
     background-color: #004494;
+}
+
+
+.star i{
+	display: inline-block;
+}
+
+
+/* corousel CSS */
+
+
+.feedback-content {
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+#feedbackCarousel{
+	display: flex;
+	flex-direction: row;
+}
+.corousel-inner{
+	display: inline-block;
+}
+
+.username {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ratings {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.feedback-text {
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.feedback-text footer {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+@media (max-width: 768px) {
+    .feedback-content {
+        font-size: 1rem;
+    }
 }

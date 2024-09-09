@@ -67,6 +67,9 @@
 
 package com.metime.config;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -77,6 +80,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -101,9 +108,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                		.requestMatchers("/MeTime/register").permitAll() // Allow access to sign-up and static resources without authentication
+		/*http.csrf(csrf -> csrf.disable()) */
+               http
+               .authorizeHttpRequests(auth -> auth
+                		.requestMatchers("/MeTime/register/**").permitAll() // Allow access to sign-up and static resources without authentication
                         .requestMatchers("/updatetrip/**", "/deleteTrips/**", "/addtrip/**").hasRole("ADMIN") // Restrict these paths to ADMIN
                         .anyRequest().authenticated()
                 )
@@ -112,5 +120,25 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
 
         return http.build();
+    }
+    
+    //code to retrieve username and their respective roles using the in built methods of Spring Security 
+    public static String getCurrentUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+            return ((UserDetails) authentication.getPrincipal()).getUsername();
+        } else {
+            return authentication != null ? authentication.getPrincipal().toString() : null;
+        }
+    }
+
+    public static Collection<String> getCurrentUserRoles() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getAuthorities() != null) {
+            return authentication.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .collect(Collectors.toList());
+        }
+        return null;
     }
 }

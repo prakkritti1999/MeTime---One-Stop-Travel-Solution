@@ -9,6 +9,16 @@ function openUpdateModal(tripId, OD, startDate, endDate, duration, category, cha
 	$('#updateModal').modal('show');
 }
 
+function getCSRF(){
+	var token = document.querySelector('meta[name="_csrf"]').getAttribute("content");
+	var headers =  document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+	return {
+		headers : headers,
+		csrf_token: token
+	}
+}
+
+var csrf = getCSRF();
 function updateTripsData() {
 	//var updateForm = $('#updateForm').serialize();
 	var id = $('#updateId').val();
@@ -17,7 +27,11 @@ function updateTripsData() {
 	var category = $('#updateCategory').val();
 	$.ajax({
 		url: '/MeTime/updatetrip/' + id,
-		type: 'GET',
+		type: 'PUT',
+		contentType: 'application/x-www-form-urlencoded',
+		headers :{
+			[csrf.headers] : [csrf.csrf_token]
+		},
 		data: {
 			OD: Od,
 			tripcategory: category,
@@ -74,7 +88,11 @@ function deleteData(id) {
 			// Proceed with delete operation if confirmed
 			$.ajax({
 				url: '/MeTime/deleteTrips/' + id,
-				type: 'GET',
+				contentType: 'application/x-www-form-urlencoded',
+				type : 'DELETE',
+				headers:{
+					[csrf.headers]:[csrf.csrf_token]
+				},
 				success: function(response) {
 					console.log("deleteData.." + response);
 					Swal.fire({
@@ -90,7 +108,7 @@ function deleteData(id) {
 				error: function(xhr, status, error) {
 					Swal.fire({
 						icon: 'error',
-						title: 'Error',
+						title: 'Permission Denied',
 						text: 'OOPS !! You are not Authorized to Delete this ' + error
 					});
 				}

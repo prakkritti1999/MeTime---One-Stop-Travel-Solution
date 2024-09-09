@@ -1,10 +1,15 @@
+<%@page import="com.metime.config.SecurityConfig"%>
+<%@page import="java.util.Collection"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<jsp:include page="headers.jsp"></jsp:include>
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
 
@@ -52,8 +57,13 @@
 	</style>
 </head>
 
-<body>
+<%
+	
+	String username = SecurityConfig.getCurrentUsername();
+	Collection<String> roles = SecurityConfig.getCurrentUserRoles();
+%>
 
+<body>
 	<nav class="navbar navbar-expand-lg" style="background-color: #001861;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">ME TIME is HERE</a>
@@ -84,8 +94,8 @@
 							<i class="fa-solid fa-user"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu">
-							<p class="dropdown-item">User name</p>
-							<p class="dropdown-item" type="button">ROLE</p>
+							<p class="dropdown-item"><%= username %></p>
+							<p class="dropdown-item" type="button"><%= roles %></p>
 							<a class="dropdown-item" href="/logout" data-bs-toggle='tooltip' data-bs-placement='top'
 								title='Logout'>
 								<i class="fa fa-sign-out" aria-hidden="true"></i>

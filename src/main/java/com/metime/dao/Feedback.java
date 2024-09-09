@@ -1,10 +1,12 @@
 package com.metime.dao;
 
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +14,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @NoArgsConstructor
@@ -21,25 +25,33 @@ import java.time.LocalDateTime;
 @Table(name = "feedback")
 public class Feedback {
 	
-	@EmbeddedId
-    private FeedbackKey id;
-
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+	
     @ManyToOne
-    @MapsId("tripId")
-    @JoinColumn(name = "trip_id")
-    private Trips trip;
-    
-    
-    @ManyToOne
-    @MapsId("username")
     @JoinColumn(name = "username")
     private User user;
 
     private int ratings;
     private String reviews;
+    
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime timestamp;
 
     // Getters and setters
+    
+
+    @PrePersist
+    protected void onCreate() {
+        timestamp = LocalDateTime.now();
+    }
+
+	@Override
+	public String toString() {
+		return "Feedback [id=" + id + ", user=" + user + ", ratings=" + ratings + ", reviews=" + reviews
+				+ ", timestamp=" + timestamp + "]";
+	}
     
 }
 

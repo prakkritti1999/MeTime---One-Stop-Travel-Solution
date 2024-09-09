@@ -18,8 +18,6 @@ public class TripRepository {
 	//Method to save/add a trip
 	public void save(Trips trips) {
 		
-		String idStr = "MT24";
-		
 		String sql = "INSERT INTO trips (category,duration,source_destination,trip_id,charges, start_date, end_date) values (?,?,?,?,?,?,?)";
 		try {
 			Connection conn = DBConnection.getConnection();

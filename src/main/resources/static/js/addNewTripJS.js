@@ -10,6 +10,12 @@
 
 
 $(document).ready(function() {
+	
+	function getCsrfToken() {
+	    const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+	    const header = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+	    return { header: header, token: token };
+	}
 	// Handle form submission
 	$('#addForm').on('submit', function(event) {
 		event.preventDefault();  // Prevent the form from submitting the traditional way
@@ -30,10 +36,14 @@ $(document).ready(function() {
 			tripCharges: charges
 		};
 
+		const csrf = getCsrfToken();
 		$.ajax({
 			url: '/MeTime/addtrip',
 			type: 'POST',
 			contentType: 'application/x-www-form-urlencoded',
+			headers: {
+	            [csrf.header]: csrf.token // Add CSRF token to the headers
+	        },
 			data: $.param(formData),
 			success: function(response) {
 				console.log(response);
