@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.metime.dao.Feedback;
-import com.metime.dao.FeedbackKey;
+import com.metime.dao.BookingsKey;
 import com.metime.dao.User;
 import com.metime.repository.FeedbackRepository;
 import com.metime.repository.UserRepo;

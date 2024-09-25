@@ -25,6 +25,8 @@ function submitForm(event) {
     var pass = document.getElementById('password').value;
     var repass = $('#repassword').val();
 	var role = $('input[name="role"]:checked').val();
+	const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+	const header = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
   
     if( (pass == repass) && (captchacode === enteredcaptchacode)){
 		
@@ -39,6 +41,7 @@ function submitForm(event) {
 			url: '/MeTime/newUser',
 		    type: 'POST',
 		    data: data,
+		    headers : {[header]: token},
 		    success: function(response) {
 				document.getElementById('errorusername').innerHTML= "";
 				document.getElementById('errorpass').innerHTML= "";

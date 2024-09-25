@@ -3,19 +3,19 @@ function searchResults() {
 	if (!keyword) {
 		alert("Please enter a keyword");
 		 $("div#AllCds").show();
-        $("#searchDiv").empty(); // Clear the search results
+		 $('#feedbackCarousel').show();
+       	$("#searchDiv").empty(); // Clear the search results
         return;
 	}
 	//alert(keyword)
 	$("div#AllCds").hide();
+	$('#feedbackCarousel').hide();
 
 	$.ajax({
 		url: '/MeTime/getTrips/' + keyword,
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
-			
-			
 			console.log("searchResults.."+JSON.stringify(data));
 			if (!data || Object.keys(data).length === 0) {
 			    $('#searchDiv').html('<div class="alert alert-danger">No Trips Available..Try Again...<i class="fa-solid fa-face-sad-cry"></i></div>');

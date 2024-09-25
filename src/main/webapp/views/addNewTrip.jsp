@@ -22,7 +22,7 @@
     <jsp:include page="navbar.jsp"></jsp:include>
     <div class="container" style="padding-bottom: 50px;">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center">Add a New Trip</h2>
@@ -46,9 +46,17 @@
                                 <input type="text" class="form-control" id="tripDuration" name="tripDuration" placeholder="Enter Duration of trip" required>
                             </div>
                             <div class="mb-3">
+                                <label for="tripImg" class="form-label">Image Path</label>
+                                <input type="text" class="form-control" id="tripImg" name="tripImg" placeholder="Type the path of images from your system" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tripDesc" class="form-label">Trip Description</label>
+                                <textarea rows="3" class="form-control" id="tripDesc" name="tripDesc" placeholder="Describe the trip in max. 100 words" required maxlength="1000"></textarea>
+                            </div>
+                            <div class="mb-3">
                                 <label for="tripCategory" class="form-label">Trip Category</label>
                                 <select class="form-control" id="tripCategory" name="tripCategory" required>                                
-                                    <option selected disabled>Select Category</option>                                
+                                    <option selected disabled>---Select Category---</option>                                
                                     <option value="Long Weekend Trip">Long Weekend Trip</option>
                                     <option value="Honeymoon Trip">Honeymoon Trip</option>
                                     <option value="Solo Travellers Trip">Solo Travellers Trip</option>
@@ -61,7 +69,6 @@
                                 <label for="tripCharges" class="form-label">Trip Charges</label>
                                 <input type="number" class="form-control" id="tripCharges" name="tripCharges" min="6000" placeholder="Enter Charges per person" required>
                             </div>
-                            
                             <button type="submit" class="btn btn-primary w-100">Add</button>
                         </form>
                     </div>    

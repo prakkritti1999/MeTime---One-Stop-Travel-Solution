@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.metime.dao.TripDetails;
 import com.metime.dao.Trips;
 import com.metime.service.PDFService;
 import com.metime.service.TripService;
@@ -81,7 +82,7 @@ public class TripController {
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> saveTrips(@RequestParam("trId") String tripId, @RequestParam String OD,
 			@RequestParam String journeyDate, @RequestParam String tripDuration, @RequestParam String tripCategory,
-			@RequestParam int tripCharges) {
+			@RequestParam int tripCharges, @RequestParam("imgpth") String imagePath, @RequestParam("desc") String desc) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		System.out.println("Add Authorities: " + auth.getAuthorities());
@@ -115,12 +116,19 @@ public class TripController {
 		trips.setDuration(tripDuration);
 		trips.setCategory(tripCategory);
 		trips.setCharges(tripCharges);
-
+		
+		tripServ.saveTrips(trips);
 		if (tripServ.isTripIdDuplicate(tripId)) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Duplicate tripId");
 		}
 
-		tripServ.saveTrips(trips);
+		TripDetails trDtls = new TripDetails();
+		trDtls.setDesc(desc);
+		trDtls.setImagePath(imagePath);
+		trDtls.setTrip(trips);
+		System.out.println("Trip Details======"+trDtls);
+		tripServ.saveTripDetails(trDtls);
+		
 		return ResponseEntity.ok("Trip Added Successfully!!");
 	}
 

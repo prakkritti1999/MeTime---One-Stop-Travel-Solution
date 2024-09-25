@@ -1,12 +1,11 @@
-function openDetailsModal(tripId, OD, startDate, endDate, duration, category, charges){
+function openDetailsModal(tripId, desc, OD, charges, startDate, endDate, duration, category, charges){
     /*$('#detailsModalLabel').text(tripId + ' - ' + category);*/
     document.getElementById('hiddenTripId').value = tripId;
     document.getElementById('detailsModalLabel').innerText = OD + ' ( ' + category + ' ) '; 
+   	document.getElementById('hiddencharges').value=charges
+    $('#description').text(desc);
 	$('#detailsModal').modal('show');
  }
- 
- 
- 
  
  function downloadPDF() {
 	
@@ -60,21 +59,3 @@ function openDetailsModal(tripId, OD, startDate, endDate, duration, category, ch
         }
     });
 }
-
-
-
-let items = document.querySelectorAll('.carousel .carousel-item')
-
-		items.forEach((el) => {
-			const minPerSlide = 4
-			let next = el.nextElementSibling
-			for (var i=1; i<minPerSlide; i++) {
-				if (!next) {
-            // wrap carousel by using first child
-            next = items[0]
-        }
-        let cloneChild = next.cloneNode(true)
-        el.appendChild(cloneChild.children[0])
-        next = next.nextElementSibling
-    }
-})

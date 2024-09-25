@@ -26,6 +26,8 @@ $(document).ready(function() {
 		var duration = $('#tripDuration').val();
 		var category = $('#tripCategory').val();
 		var charges = $('#tripCharges').val();
+		var desc= document.getElementById('tripDesc').value;
+		var imagepath = document.getElementById('tripImg').value;
 
 		var formData = {
 			trId: id,
@@ -33,7 +35,9 @@ $(document).ready(function() {
 			journeyDate: date,
 			tripDuration: duration,
 			tripCategory: category,
-			tripCharges: charges
+			tripCharges: charges,
+			imgpth : imagepath,
+			desc :desc
 		};
 
 		const csrf = getCsrfToken();

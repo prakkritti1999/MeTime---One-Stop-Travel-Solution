@@ -68,8 +68,7 @@
 package com.metime.config;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
-
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -111,7 +110,7 @@ public class SecurityConfig {
 		/*http.csrf(csrf -> csrf.disable()) */
                http
                .authorizeHttpRequests(auth -> auth
-                		.requestMatchers("/MeTime/register/**").permitAll() // Allow access to sign-up and static resources without authentication
+                		.requestMatchers("/register/").permitAll() // Allow access to sign-up and static resources without authentication
                         .requestMatchers("/updatetrip/**", "/deleteTrips/**", "/addtrip/**").hasRole("ADMIN") // Restrict these paths to ADMIN
                         .anyRequest().authenticated()
                 )
@@ -132,13 +131,11 @@ public class SecurityConfig {
         }
     }
 
-    public static Collection<String> getCurrentUserRoles() {
+    public static Collection<? extends GrantedAuthority> getCurrentUserRoles() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getAuthorities() != null) {
-            return authentication.getAuthorities().stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .collect(Collectors.toList());
+        	return authentication.getAuthorities();
         }
-        return null;
+        return Collections.emptyList();
     }
 }

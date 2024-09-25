@@ -60,6 +60,6 @@
 <script type="text/javascript" src="/js/homeModalJS.js"></script>
 <script type="text/javascript" src="/js/displayJS.js"></script>
 <script type="text/javascript" src="/js/corouselJS.js"></script>
-
+<script type="text/javascript" src="/js/bookingsJS.js"></script>
 </body>
 </html>

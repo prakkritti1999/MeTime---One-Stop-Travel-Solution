@@ -3,13 +3,16 @@ package com.metime.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.metime.dao.TripDetails;
 import com.metime.dao.Trips;
 import com.metime.repository.TripRepository;
 import com.metime.repository.TripRepositoryJPA;
+import com.metime.repository.TripsDetailsRepository;
 
 @Service
 public class TripService {
@@ -48,5 +51,15 @@ public class TripService {
 	public boolean isTripIdDuplicate(String tripId) {
         return tripReposJPA.findById(tripId).isPresent();  
     }
-
+	
+	@Autowired TripsDetailsRepository tripsDetailsRepository;
+	
+	public List<TripDetails> getAllTripsDetails(){
+		return tripsDetailsRepository.findAll();
+	}
+	
+	public String saveTripDetails(TripDetails trDtls) {
+		tripsDetailsRepository.save(trDtls);
+		return "Trip Details Saved";
+	}
 }

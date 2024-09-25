@@ -11,5 +11,6 @@ import com.metime.dao.Trips;
 public interface TripRepositoryJPA extends JpaRepository<Trips, String> {
 
 	//@Query(value = "select * from trips where category = %")
+	//Creating methods using the Domain Specific Queries Language (DSL) feature of JPA Repository
 	List<Trips> findByCategoryContainingOrODContaining(String category, String OD);
 }

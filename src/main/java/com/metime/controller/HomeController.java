@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metime.dao.Feedback;
+import com.metime.dao.TripDetails;
 import com.metime.dao.Trips;
 import com.metime.service.FeedbackService;
 import com.metime.service.TripService;
@@ -17,8 +18,6 @@ import com.metime.service.TripService;
 @Controller
 @RequestMapping("/MeTime/")
 public class HomeController {
-
-	
 	
 	@Autowired TripService tripServ;
 	@Autowired FeedbackService feedbackServ;
@@ -28,9 +27,12 @@ public class HomeController {
 				
 		List<Trips> getAllTrips = tripServ.getTrips();
 		List<Feedback> allfeedbacks = feedbackServ.getListofFeedback();
+		List<TripDetails> getAllTripDetails = tripServ.getAllTripsDetails();
+		//String imagePath = tripServ.getRandomImagePath()
 		
 		model.addObject("listofTrips", getAllTrips);
 		model.addObject("userfeedbacks", allfeedbacks);
+		model.addObject("tripDetails", getAllTripDetails);
 		
 		model.setViewName("home");
 		System.out.println("List of Trips---"+getAllTrips);

@@ -1,24 +1,12 @@
 .container {
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
+/* cards CSS */
 .card {
     margin: 10px;
     flex: 0 1 30%; /* Adjust to ensure proper spacing and wrapping */
     max-width: 30rem; /* Ensure cards don't get too wide */
-}
-
-.search-bar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-.search-bar input {
-    max-width: 30rem;
-    flex: 1; /* Allow input to take available space */
-}
-.search-bar button {
-    margin-left: 10px; /* Add space between input and button */
 }
 
 .card:hover {
@@ -37,6 +25,27 @@
     }
 }
 
+
+/* Search Bar CSS */
+
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.search-bar input {
+    max-width: 30rem;
+    flex: 1; /* Allow input to take available space */
+}
+.search-bar input:hover{
+	background-color: #D3D3D3;
+}
+
+.search-bar button {
+    margin-left: 10px; /* Add space between input and button */
+}
+
+
 .btn-primary {
     background-color: #0056b3;
     border: none;
@@ -48,13 +57,12 @@
 }
 
 
-.star i{
-	display: inline-block;
-}
-
 
 /* corousel CSS */
 
+.star i{
+	display: inline-block;
+}
 
 .feedback-content {
     padding: 20px;
