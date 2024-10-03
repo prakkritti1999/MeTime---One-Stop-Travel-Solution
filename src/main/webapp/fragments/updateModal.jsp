@@ -27,8 +27,7 @@
 					<div class="form-group mb-3">
 						<label for="journeyDate" class="form-label" for="journeyDate">Journey
 							Date</label> <input type="text" class="form-control" id="journeyDate"
-							name="journeyDate" placeholder="Enter date of journey"
-							disabled="disabled">
+							name="journeyDate" disabled="disabled">
 					</div>
 
 					<div class="form-group mb-3">
@@ -36,6 +35,14 @@
 							class="form-control" id="updateDuration" name="updateDuration"
 							disabled="disabled">
 					</div>
+					<div class="mb-3">
+                        <label for="tripImg" class="form-label">Image Path</label>
+                        <input type="text" class="form-control" id="updatetripImg" name="updatetripImg" placeholder="Type the path of images from your system" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tripDesc" class="form-label">Trip Description</label>
+                        <textarea rows="3" class="form-control" id="updatetripDesc" name="updatetripDesc"></textarea>
+                    </div>
 					<div class="form-group mb-3">
 						<label for="updateCategory">Category</label> <input type="text"
 							class="form-control" id="updateCategory" name="updateCategory"

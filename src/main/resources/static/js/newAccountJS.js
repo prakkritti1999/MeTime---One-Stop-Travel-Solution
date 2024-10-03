@@ -25,6 +25,7 @@ function submitForm(event) {
     var pass = document.getElementById('password').value;
     var repass = $('#repassword').val();
 	var role = $('input[name="role"]:checked').val();
+	var email = $('#email').val();
 	const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
 	const header = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
   
@@ -32,15 +33,17 @@ function submitForm(event) {
 		
 		
 		var data = {
-			uname : uname,
-			pass : pass,
-			role : role
+			username : uname,
+			password : pass,
+			role : role,
+			emailId : email
 		}
 		
 		$.ajax({
 			url: '/MeTime/newUser',
 		    type: 'POST',
-		    data: data,
+		    data: JSON.stringify(data),
+		    contentType: 'application/json', 
 		    headers : {[header]: token},
 		    success: function(response) {
 				document.getElementById('errorusername').innerHTML= "";

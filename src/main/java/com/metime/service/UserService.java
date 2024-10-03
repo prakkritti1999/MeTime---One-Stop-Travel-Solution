@@ -22,7 +22,7 @@ public class UserService {
 	 * urepo.save(user); }
 	 */
     
-    public User getUser(User user) {
+    public User saveUser(User user) {
     	user.setPassword(encoder.encode(user.getPassword()));
     	return urepo.save(user);
     }

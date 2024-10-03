@@ -50,8 +50,8 @@ public class BookingsService {
 		Order order = client.orders.create(ob);
 		System.out.println("order created===" + order);
 
-		return Map.of("id", order.get("id"), "amount", order.get("amount").toString(), "currency", order.get("currency"), "status",
-				order.get("status"));
+		return Map.of("id", order.get("id"), "amount", order.get("amount").toString(), "currency",
+				order.get("currency"), "status", order.get("status"), "receipt", order.get("receipt"));
 	}
 
 	public void makeandsavePayment(Map<String, String> orderdata, Map<String, String> data, Principal principal) {

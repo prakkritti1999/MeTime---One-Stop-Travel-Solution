@@ -33,11 +33,21 @@
                                         placeholder="Enter Username" required>
                                     <div id="errorusername"></div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password:</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                        placeholder="Enter a Unique password" required min="8" maxlength="15">
+                                
+                                <div class="form-row">    
+	                                <div class="col-md-6 mb-3">
+	                                    <label for="email" class="form-label">Email ID:</label>
+	                                    <input type="email" class="form-control" id="email" name="email"
+	                                        placeholder="Enter email" required>
+	                                    <div id="erroremail"></div>
+	                                </div>
+	                                <div class="col-md-6 mb-3">
+	                                    <label for="password" class="form-label">Password:</label>
+	                                    <input type="password" class="form-control" id="password" name="password"
+	                                        placeholder="Enter a Unique password" required min="8" maxlength="15">
+	                                </div>
                                 </div>
+                                
                                 <div class="mb-3">
                                     <label for="repassword" class="form-label">Re-enter Password:</label>
                                     <input type="password" class="form-control" id="repassword" name="repassword"

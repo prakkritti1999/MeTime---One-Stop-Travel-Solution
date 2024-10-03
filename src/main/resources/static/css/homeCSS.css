@@ -92,11 +92,12 @@
 .feedback-text {
     font-style: italic;
     font-size: 1rem;
+    color: magenta;
 }
 
 .feedback-text footer {
     font-size: 0.85rem;
-    color: #6c757d;
+    color: orange;
 }
 
 .carousel-control-prev-icon,

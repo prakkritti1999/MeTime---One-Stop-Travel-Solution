@@ -4,12 +4,14 @@ function searchResults() {
 		alert("Please enter a keyword");
 		 $("div#AllCds").show();
 		 $('#feedbackCarousel').show();
-       	$("#searchDiv").empty(); // Clear the search results
+		 $('#accordionFAQS').show();
+       	 $("#searchDiv").empty(); // Clear the search results
         return;
 	}
 	//alert(keyword)
 	$("div#AllCds").hide();
 	$('#feedbackCarousel').hide();
+	$('#accordionFAQS').hide();
 
 	$.ajax({
 		url: '/MeTime/getTrips/' + keyword,
@@ -39,7 +41,8 @@ function searchResults() {
 					cardHTML += '<h5 class="card-title">' + item.OD+ '</h5>';
 					cardHTML += '<p class="card-text">' + item.category + '</p>';
 					cardHTML += '<p class="card-text">' + item.duration + '&nbsp;&nbsp;'+item.charges + '/- onwards</p>';
-					cardHTML += '<button type="submit" class="btn btn-primary" onclick="openModalDetails()"> Know More <i class="fa fa-arrow-right"></i></button>'; 
+					cardHTML += '<button type="submit" class="btn btn-primary" onclick="openModalDetails()"> Know More <i class="fa fa-arrow-right"></i></button>';
+					cardHTML += '<button type="submit" class="btn btn-warning" onclick="payNow(\'' + item.charges + '\', \'' + item.tripId + '\')"> Book Now</button>';
 					cardHTML += '</div>';
 					cardHTML += '</div>';
 					cardHTML += '</div>';

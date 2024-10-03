@@ -1,6 +1,8 @@
-function openUpdateModal(tripId, OD, startDate, endDate, duration, category, charges) {
+function openUpdateModal(tripId, desc, imgpth, OD, startDate, endDate, duration, category, charges) {
 	$('#updateId').val(tripId);
 	/*document.getElementById('updateId').value = tripId;*/
+	document.getElementById('updatetripImg').value = imgpth;
+	document.getElementById('updatetripDesc').value = desc;
 	$('#updateOD').val(OD);
 	$('#journeyDate').val(startDate + '  to  ' + endDate);
 	$('#updateDuration').val(duration);

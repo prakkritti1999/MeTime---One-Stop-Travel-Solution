@@ -44,6 +44,8 @@
 	<!-- Customers' Feedbacks -->
 	<jsp:include page="/fragments/corousel.jsp"></jsp:include>
 
+	<!-- FAQS' -->
+	<jsp:include page="/fragments/faqsAccordion.jsp"></jsp:include>
 </div>	
 
 <!-- Trips Details Modal -->

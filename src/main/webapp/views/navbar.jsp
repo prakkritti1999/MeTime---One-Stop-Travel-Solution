@@ -1,3 +1,4 @@
+<%@page import="java.security.Principal"%>
 <%@page import="org.springframework.security.core.GrantedAuthority"%>
 <%@page import="com.metime.config.SecurityConfig"%>
 <%@page import="java.util.Collection"%>
@@ -103,6 +104,7 @@
 </head>
 
 <%
+	/* String username = SecurityConfig.getCurrentUsername(request.getUserPrincipal()); */
 	String username = SecurityConfig.getCurrentUsername();
 	Collection<? extends GrantedAuthority> roles = SecurityConfig.getCurrentUserRoles();
 %>

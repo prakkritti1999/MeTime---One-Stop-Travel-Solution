@@ -19,6 +19,7 @@ public class EmailService {
 		SimpleMailMessage message = new SimpleMailMessage();
 		
 		message.setFrom("metime@demomailtrap.com");
+		//message.setTo(booking.getUser().getEmailId());
 		message.setTo("prakriti.guptta@gmail.com");
 		message.setSubject("Booking Confirmation: METIME");
 		message.setText("Dear " + booking.getBkey().getUsername() + ",\n\n" +

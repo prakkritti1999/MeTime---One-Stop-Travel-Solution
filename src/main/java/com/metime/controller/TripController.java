@@ -81,55 +81,56 @@ public class TripController {
 	@PostMapping("addtrip")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> saveTrips(@RequestParam("trId") String tripId, @RequestParam String OD,
-			@RequestParam String journeyDate, @RequestParam String tripDuration, @RequestParam String tripCategory,
-			@RequestParam int tripCharges, @RequestParam("imgpth") String imagePath, @RequestParam("desc") String desc) {
+	        @RequestParam String journeyDate, @RequestParam String tripDuration, @RequestParam String tripCategory,
+	        @RequestParam int tripCharges, @RequestParam("imgpth") String imagePath, @RequestParam("desc") String desc) {
 
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println("Add Authorities: " + auth.getAuthorities());
+	    // Logging Authorities
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    System.out.println("Add Authorities: " + auth.getAuthorities());
 
-		System.out.println(tripId);
-		System.out.println(OD);
-		System.out.println(journeyDate);
-		System.out.println(tripDuration);
-		System.out.println(tripCategory);
-		System.out.println(tripCharges);
+	    // Date parsing logic
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+	    Date startDate = null;
+	    Date endDate = null;
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		Date startDate = null;
-		Date endDate = null;
+	    // Parse the date range
+	    String[] dates = journeyDate.split(" - ");
+	    try {
+	        startDate = dateFormat.parse(dates[0]);
+	        endDate = dateFormat.parse(dates[1]);
+	    } catch (ParseException e) {
+	        e.printStackTrace();
+	    }
 
-		// Parse the date range
-		String[] dates = journeyDate.split(" - ");
-		try {
-			startDate = dateFormat.parse(dates[0]);
-			endDate = dateFormat.parse(dates[1]);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    // Creating and setting the Trips entity
+	    Trips trips = new Trips();
+	    trips.setTripId(tripId);
+	    trips.setOD(OD);
+	    trips.setStartDate(startDate);
+	    trips.setEndDate(endDate);
+	    trips.setDuration(tripDuration);
+	    trips.setCategory(tripCategory);
+	    trips.setCharges(tripCharges);
 
-		Trips trips = new Trips();
-		trips.setTripId(tripId);
-		trips.setOD(OD);
-		trips.setStartDate(startDate);
-		trips.setEndDate(endDate);
-		trips.setDuration(tripDuration);
-		trips.setCategory(tripCategory);
-		trips.setCharges(tripCharges);
-		
-		tripServ.saveTrips(trips);
-		if (tripServ.isTripIdDuplicate(tripId)) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Duplicate tripId");
-		}
+	    // Check if tripId is duplicate
+	    if (tripServ.isTripIdDuplicate(tripId)) {
+	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Duplicate tripId");
+	    }
 
-		TripDetails trDtls = new TripDetails();
-		trDtls.setDesc(desc);
-		trDtls.setImagePath(imagePath);
-		trDtls.setTrip(trips);
-		System.out.println("Trip Details======"+trDtls);
-		tripServ.saveTripDetails(trDtls);
-		
-		return ResponseEntity.ok("Trip Added Successfully!!");
+	    // Save Trips entity
+	    tripServ.saveTrips(trips);
+
+	    // Creating and setting the TripDetails entity
+	    TripDetails trDtls = new TripDetails();
+	    trDtls.setDesc(desc);
+	    trDtls.setImagePath(imagePath);
+	    trDtls.setTrip(trips);  // Associate TripDetails with Trips entity
+	    System.out.println("Trip Details======" + trDtls);
+
+	    // Save TripDetails entity
+	    tripServ.saveTripDetails(trDtls);
+
+	    return ResponseEntity.ok("Trip Added Successfully!!");
 	}
 
 	@GetMapping("getTrips/{keyword}")

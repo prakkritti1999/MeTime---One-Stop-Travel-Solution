@@ -110,8 +110,8 @@ public class SecurityConfig {
 		/*http.csrf(csrf -> csrf.disable()) */
                http
                .authorizeHttpRequests(auth -> auth
-                		.requestMatchers("/register/").permitAll() // Allow access to sign-up and static resources without authentication
-                        .requestMatchers("/updatetrip/**", "/deleteTrips/**", "/addtrip/**").hasRole("ADMIN") // Restrict these paths to ADMIN
+            		   	.requestMatchers("/MeTime/register", "/MeTime/newUser", "/css/**", "/js/**", "/images/**").permitAll() // Allow access to sign-up and static resources without authentication
+                		.requestMatchers("/updatetrip/**", "/deleteTrips/**", "/addtrip/**").hasRole("ADMIN") // Restrict these paths to ADMIN
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults()) // Use this if you want to enable form-based login
@@ -121,16 +121,23 @@ public class SecurityConfig {
         return http.build();
     }
     
-    //code to retrieve username and their respective roles using the in built methods of Spring Security 
-    public static String getCurrentUsername() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-            return ((UserDetails) authentication.getPrincipal()).getUsername();
-        } else {
-            return authentication != null ? authentication.getPrincipal().toString() : null;
-        }
-    }
-
+	
+	// code to retrieve username and their respective roles using the in built
+	// methods of Spring Security
+	public static String getCurrentUsername() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+			return ((UserDetails) authentication.getPrincipal()).getUsername();
+		} else {
+			return authentication != null ? authentication.getPrincipal().toString() : null;
+		}
+	}
+	 
+    
+	/*
+	 * //Alternatively can be done using Principal public static String
+	 * getCurrentUsername(Principal principal) { return principal.getName(); }
+	 */
     public static Collection<? extends GrantedAuthority> getCurrentUserRoles() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getAuthorities() != null) {
