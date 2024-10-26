@@ -132,7 +132,7 @@
 						<a class="nav-link" href="aboutUS">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#"><i class="fa fa-phone"></i></a>
+						<a class="nav-link" href="contactUS"><i class="fa fa-phone"></i></a>
 					</li>
 				</ul>
 				<div class="ms-auto d-flex align-items-center">

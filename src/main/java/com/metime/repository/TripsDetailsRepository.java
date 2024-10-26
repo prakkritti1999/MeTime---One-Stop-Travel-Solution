@@ -7,5 +7,7 @@ import com.metime.dao.TripDetails;
 
 @Repository
 public interface TripsDetailsRepository extends JpaRepository<TripDetails, Integer>{
+
+	/* public TripDetails deleteById(String tripid); */
 	
 }

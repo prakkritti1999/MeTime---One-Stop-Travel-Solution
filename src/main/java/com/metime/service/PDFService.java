@@ -25,15 +25,15 @@ public class PDFService {
         try {
             // Initialize PDF writer
             PdfWriter writer = new PdfWriter(pdfPath);
-            
+
             // Initialize PDF document
             PdfDocument pdfDoc = new PdfDocument(writer);
-            
+
             // Initialize document
             Document document = new Document(pdfDoc);
-            
+
             // Absolute path to the image file
-            String imgPath = getClass().getClassLoader().getResource("static/images/2.jpeg").getPath();
+            String imgPath = getClass().getClassLoader().getResource("static/images/smiley.jpeg").getPath();
             File imgFile = new File(imgPath);
             if (imgFile.exists()) {
                 ImageData imageData = ImageDataFactory.create(imgPath);
@@ -43,34 +43,34 @@ public class PDFService {
             } else {
                 System.out.println("Image file not found: " + imgPath);
             }
-            
+
             // Add paragraphs to the document
             document.add(new Paragraph("Welcome to MeTime"));
             document.add(new Paragraph("Here is the detailed itinerary for " + id));
             document.add(new Paragraph("Confirm booking for Trip " + id));
-            
+
             // Create a table with 2 columns
             Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
-            
+
             // Add table headers
             table.addHeaderCell("User");
             table.addHeaderCell("Password");
-            
+
             // Add table rows (example data)
             table.addCell("username1");
             table.addCell("password1");
-            
+
             // Create cells for the second row with no borders
             Cell userCell = new Cell().setBorder(Border.NO_BORDER);
             Cell passwordCell = new Cell().setBorder(Border.NO_BORDER);
-            
+
             // Add the borderless cells to the table
             table.addCell(userCell);
             table.addCell(passwordCell);
-            
+
             // Add the table to the document
             document.add(table);
-            
+
             document.close();
             System.out.println("PDF created successfully.");
         } catch (FileNotFoundException e) {

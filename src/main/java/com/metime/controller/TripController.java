@@ -37,6 +37,7 @@ import com.metime.dao.TripDetails;
 import com.metime.dao.Trips;
 import com.metime.service.PDFService;
 import com.metime.service.TripService;
+import com.metime.service.TripsDetailsService;
 
 @Controller
 @RequestMapping("/MeTime/")
@@ -162,14 +163,18 @@ public class TripController {
 	 * searchByCategoryOrOD(@RequestParam("keyword") String keyword) { return
 	 * tripServ.searchByCategoryOrOD(keyword); }
 	 */
-
+	@Autowired TripsDetailsService detailsService;
+	
 	@DeleteMapping("deleteTrips/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteTrip(@PathVariable("id") String tripId) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		System.out.println("Delete Authorities: " + auth.getAuthorities());
 
+		/* detailsService.deleteTrips(tripId); */
 		tripServ.deletetrip(tripId);
+		
+		
 		return ResponseEntity.ok("Trip Deleted");
 	}
 
@@ -201,6 +206,11 @@ public class TripController {
 	@GetMapping("aboutUS")
 	public String aboutPage() {
 		return "aboutUS";
+	}
+	
+	@GetMapping("contactUS")
+	public String contactUS() {
+		return "contactUS";
 	}
 
 	@GetMapping("/downloaditinerary")

@@ -11,10 +11,15 @@ import com.metime.repository.TripsDetailsRepository;
 @Service
 public class TripsDetailsService {
 
-	@Autowired TripsDetailsRepository tripsDetailsRepository;
-	
-	public List<TripDetails> getAllTripsDetails(){
+	@Autowired
+	TripsDetailsRepository tripsDetailsRepository;
+
+	public List<TripDetails> getAllTripsDetails() {
 		return tripsDetailsRepository.findAll();
 	}
-	
+
+	/*
+	 * public TripDetails deleteTrips(String tripid){ return
+	 * tripsDetailsRepository.deleteById(tripid); }
+	 */
 }

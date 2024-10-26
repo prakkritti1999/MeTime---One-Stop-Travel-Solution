@@ -1,5 +1,7 @@
 package com.metime.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class TripDetails {
 	
 	@ManyToOne
 	@JoinColumn(name = "trip_id")
+	@JsonIgnore
 	private Trips trip;
 	
 	private String imagePath;

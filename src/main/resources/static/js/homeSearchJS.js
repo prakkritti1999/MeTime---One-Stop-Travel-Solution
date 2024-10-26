@@ -18,6 +18,7 @@ function searchResults() {
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
+			console.log("searchResults: ", data);  // Log the entire data object
 			console.log("searchResults.."+JSON.stringify(data));
 			if (!data || Object.keys(data).length === 0) {
 			    $('#searchDiv').html('<div class="alert alert-danger">No Trips Available..Try Again...<i class="fa-solid fa-face-sad-cry"></i></div>');
