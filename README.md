@@ -31,9 +31,9 @@ Setup and Installation
 1. Clone the repository : git clone https://github.com/prakkritti1999/MeTime---One-Stop-Travel-Solution
 2. Setup the MySQL database and create cris database
 3. Configure application.properties file and update the database credentials
-    spring.datasource.url=jdbc:mysql://localhost:3306/cris
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
+    3.i.   spring.datasource.url=jdbc:mysql://localhost:3306/cris
+    3.ii.  spring.datasource.username=your_username
+    3.iii. spring.datasource.password=your_password
 4. Run the application
 5. Access the homepage via the following url : http://localahost:8080/metime/home
 
