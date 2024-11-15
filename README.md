@@ -35,7 +35,7 @@ Setup and Installation
     3.ii.  spring.datasource.username=your_username
     3.iii. spring.datasource.password=your_password
 4. Run the application
-5. Access the homepage via the following url : http://localahost:8080/metime/home
+5. Access the homepage via the following url : http://localahost:8080/MeTime/home
 
 How to Use
 1. Browse Packages: Explore the range of travel packages based on your preferences.
