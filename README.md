@@ -50,8 +50,8 @@ Planned Features
 Contributions are welcome! Feel free to submit a pull request or open an issue to report bugs or suggest new features.
 
 Few pages of the project are attached below
-![Screenshot 2024-10-02 151849](https://github.com/user-attachments/assets/a1081832-0dbc-4462-a49e-3f7fa46b6ddf)
-![Screenshot (17)](https://github.com/user-attachments/assets/b58dda08-0220-40a6-901c-91ce76ecef9e)
+1) The Home Page :![Screenshot 2024-10-02 151849](https://github.com/user-attachments/assets/a1081832-0dbc-4462-a49e-3f7fa46b6ddf)
+2) Bookings Page :![Screenshot (18)](https://github.com/user-attachments/assets/d90f25e0-bbaf-46da-810c-7ba07903807e)
 ![Screenshot (16)](https://github.com/user-attachments/assets/f21eb494-47b8-4c14-92a6-b9fe3b446458)
 
 
