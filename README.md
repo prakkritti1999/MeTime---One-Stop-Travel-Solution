@@ -1,6 +1,3 @@
-![Screenshot 2024-10-02 151849](https://github.com/user-attachments/assets/a1081832-0dbc-4462-a49e-3f7fa46b6ddf)
-![Screenshot (17)](https://github.com/user-attachments/assets/b58dda08-0220-40a6-901c-91ce76ecef9e)
-![Screenshot (16)](https://github.com/user-attachments/assets/f21eb494-47b8-4c14-92a6-b9fe3b446458)
 MeTime - Luxurious Travel and Tour Packages
 
 Overview
@@ -51,5 +48,10 @@ Planned Features
 2. Microservices architecture for scalability.
 
 Contributions are welcome! Feel free to submit a pull request or open an issue to report bugs or suggest new features.
+
+Few pages of the project are attached below
+![Screenshot 2024-10-02 151849](https://github.com/user-attachments/assets/a1081832-0dbc-4462-a49e-3f7fa46b6ddf)
+![Screenshot (17)](https://github.com/user-attachments/assets/b58dda08-0220-40a6-901c-91ce76ecef9e)
+![Screenshot (16)](https://github.com/user-attachments/assets/f21eb494-47b8-4c14-92a6-b9fe3b446458)
 
 
